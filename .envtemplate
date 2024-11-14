@@ -1,0 +1,4 @@
+DB_NAME=wordpressbasedbname
+DB_USER=wordpressbasedbuser
+DB_PASS=wordpressbasedbpass
+DB_ROOT_PASS=1
