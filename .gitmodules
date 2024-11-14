@@ -1,0 +1,5 @@
+[submodule "ressources"]
+	path = ressources
+	url = ../../numendo/ressources.git
+	ignore = all
+	branch = main

@@ -1,0 +1,19 @@
+services:
+  db:
+    image: mysql:5.7.29
+    volumes:
+      - ./docker/mysql:/var/lib/mysql
+    command: --max_allowed_packet=32505856
+    env_file:
+      - config.env
+  wordpress:
+    image: numendo/wordpress:8.3-apache-bullseye
+    volumes:
+      - ./ressources/scripts/:/var/www/scripts/:cached
+      - ./html/:/var/www/html/
+      - ./ressources/php/my-config.ini:/usr/local/etc/php/conf.d/my-config.ini:cached
+      - ~/.ssh/id_rsa:/root/.ssh/id_rsa:cached
+      - ~/.ssh/id_rsa.pub:/root/.ssh/id_rsa.pub:cached
+      - ./ressources/apache:/etc/apache2/sites-available/:cached
+    env_file:
+      - config.env
